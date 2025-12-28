@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAI - AI-Powered Health Symptom Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🏥</span>
+                <span class="logo-text">HealthAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#analyzer" class="nav-link">Symptom Check</a>
+                <a href="#about" class="nav-link">About</a>
+                <button class="btn btn-outline" onclick="showAuthModal('login')">Login</button>
+                <button class="btn btn-primary" onclick="showAuthModal('signup')">Sign Up</button>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                AI-Powered Health Analysis
+            </div>
+            <h1 class="hero-title">
+                Understand Your<br>
+                <span class="gradient-text">Health Symptoms</span><br>
+                With AI Assistance
+            </h1>
+            <p class="hero-subtitle">
+                Get preliminary health insights based on your symptoms. Our AI analyzes 
+                your health concerns and provides educational information to help you 
+                make informed decisions about your healthcare.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary btn-lg" onclick="scrollToAnalyzer()">
+                    Start Symptom Check
+                    <span class="btn-arrow">→</span>
+                </button>
+                <button class="btn btn-ghost btn-lg" onclick="scrollToFeatures()">
+                    Learn More
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">100K+</span>
+                    <span class="stat-label">Analyses Done</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">User Satisfaction</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="medical-card">
+                <div class="card-header">
+                    <span class="card-icon">🩺</span>
+                    <span>Health Analysis</span>
+                </div>
+                <div class="card-content">
+                    <div class="analysis-preview">
+                        <div class="preview-item">
+                            <span class="preview-dot green"></span>
+                            <span>Symptoms Analyzed</span>
+                        </div>
+                        <div class="preview-item">
+                            <span class="preview-dot blue"></span>
+                            <span>AI Processing</span>
+                        </div>
+                        <div class="preview-item">
+                            <span class="preview-dot purple"></span>
+                            <span>Results Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2 class="section-title">Comprehensive Health Analysis Tools</h2>
+                <p class="section-subtitle">
+                    Powered by advanced AI to help you understand your health better
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Symptom Analysis</h3>
+                    <p>Describe your symptoms and get AI-powered preliminary assessments with possible conditions and recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Report Analysis</h3>
+                    <p>Upload your medical reports (PDF) and receive easy-to-understand explanations of your test results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Health Chat</h3>
+                    <p>Have an interactive conversation about your health concerns with our AI health assistant.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Health Tracking</h3>
+                    <p>Keep track of your symptom analyses and health trends over time for better insights.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private & Secure</h3>
+                    <p>Your health data is encrypted and handled with the utmost privacy and security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get immediate preliminary health insights without long wait times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptom Analyzer Section -->
+    <section id="analyzer" class="analyzer-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Symptom Checker</span>
+                <h2 class="section-title">Describe Your Symptoms</h2>
+                <p class="section-subtitle">
+                    Enter your symptoms below for a preliminary AI-powered health assessment
+                </p>
+            </div>
+            
+            <div class="analyzer-container">
+                <!-- Tab Navigation -->
+                <div class="analyzer-tabs">
+                    <button class="tab-btn active" data-tab="symptoms">
+                        <span class="tab-icon">🩺</span>
+                        Symptom Check
+                    </button>
+                    <button class="tab-btn" data-tab="report">
+                        <span class="tab-icon">📄</span>
+                        Report Analysis
+                    </button>
+                    <button class="tab-btn" data-tab="chat">
+                        <span class="tab-icon">💬</span>
+                        Health Chat
+                    </button>
+                </div>
+
+                <!-- Symptom Check Tab -->
+                <div id="symptoms-tab" class="tab-content active">
+                    <form id="symptom-form" class="symptom-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" placeholder="Enter your age" required min="0" max="150">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="symptoms">Symptoms</label>
+                            <div class="symptoms-input-container">
+                                <input type="text" id="symptom-input" placeholder="Type a symptom and press Enter">
+                                <div id="symptoms-tags" class="symptoms-tags"></div>
+                            </div>
+                            <input type="hidden" id="symptoms-hidden" name="symptoms">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration">Duration</label>
+                                <select id="duration" name="duration" required>
+                                    <option value="">How long?</option>
+                                    <option value="less than 24 hours">Less than 24 hours</option>
+                                    <option value="1-3 days">1-3 days</option>
+                                    <option value="3-7 days">3-7 days</option>
+                                    <option value="1-2 weeks">1-2 weeks</option>
+                                    <option value="2-4 weeks">2-4 weeks</option>
+                                    <option value="more than a month">More than a month</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="severity">Severity</label>
+                                <select id="severity" name="severity" required>
+                                    <option value="">Select severity</option>
+                                    <option value="mild">Mild - Noticeable but not disruptive</option>
+                                    <option value="moderate">Moderate - Affecting daily activities</option>
+                                    <option value="severe">Severe - Significantly impacting life</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medical-history">Medical History (Optional)</label>
+                            <textarea id="medical-history" name="medical_history" 
+                                placeholder="Any relevant medical conditions, allergies, or medications..." rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="analyze-btn">
+                            <span class="btn-text">Analyze Symptoms</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="loader"></span>
+                                Analyzing...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Report Analysis Tab -->
+                <div id="report-tab" class="tab-content">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📁</div>
+                        <h3>Upload Medical Report</h3>
+                        <p>Drag and drop your PDF file here or click to browse</p>
+                        <input type="file" id="report-file" accept=".pdf" hidden>
+                        <button class="btn btn-outline" onclick="document.getElementById('report-file').click()">
+                            Choose File
+                        </button>
+                        <p class="upload-info">Supported format: PDF (Max 10MB)</p>
+                    </div>
+                    <div id="file-preview" class="file-preview" style="display: none;">
+                        <div class="file-info">
+                            <span class="file-icon">📄</span>
+                            <span id="file-name"></span>
+                            <button class="remove-file" onclick="removeFile()">×</button>
+                        </div>
+                        <button class="btn btn-primary btn-block" id="analyze-report-btn" onclick="analyzeReport()">
+                            <span class="btn-text">Analyze Report</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="loader"></span>
+                                Processing...
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Health Chat Tab -->
+                <div id="chat-tab" class="tab-content">
+                    <div class="chat-container">
+                        <div id="chat-messages" class="chat-messages">
+                            <div class="chat-message assistant">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <p>Hello! I'm your AI Health Assistant. How can I help you today? Feel free to ask any health-related questions.</p>
+                                    <span class="message-time">Just now</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <input type="text" id="chat-input" placeholder="Type your health question...">
+                            <button class="btn btn-primary" id="send-chat-btn" onclick="sendChatMessage()">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Area -->
+            <div id="results-area" class="results-area" style="display: none;">
+                <div class="results-header">
+                    <h3>Analysis Results</h3>
+                    <span id="results-timestamp" class="results-timestamp"></span>
+                </div>
+                <div id="results-content" class="results-content"></div>
+                <div class="disclaimer-box">
+                    <span class="disclaimer-icon">⚠️</span>
+                    <p><strong>Important Disclaimer:</strong> This analysis is for informational and educational purposes only. It does not constitute medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for proper medical evaluation and care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-badge">About HealthAI</span>
+                    <h2>AI Technology for Better Health Understanding</h2>
+                    <p>
+                        HealthAI uses advanced artificial intelligence to help you understand your 
+                        health symptoms better. Our system is designed to provide preliminary 
+                        health information, NOT to replace professional medical advice.
+                    </p>
+                    <ul class="about-list">
+                        <li>✓ Powered by state-of-the-art AI models</li>
+                        <li>✓ Based on medical knowledge databases</li>
+                        <li>✓ Designed for educational purposes</li>
+                        <li>✓ Privacy-focused and secure</li>
+                    </ul>
+                    <p class="warning-text">
+                        <strong>Always consult a healthcare professional</strong> for proper 
+                        diagnosis and treatment. In case of emergency, call your local 
+                        emergency services immediately.
+                    </p>
+                </div>
+                <div class="about-visual">
+                    <div class="tech-stack">
+                        <h4>Powered By</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">LLaMA 3</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🏥</span>
+                        <span class="logo-text">HealthAI</span>
+                    </div>
+                    <p>AI-powered health symptom analysis for better health understanding.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#analyzer">Symptom Checker</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Medical Disclaimer</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HealthAI. For educational purposes only. Not a substitute for medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            <div id="login-form" class="auth-form">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access your health dashboard</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="showAuthModal('signup')">Sign Up</a></p>
+            </div>
+            <div id="signup-form" class="auth-form" style="display: none;">
+                <h2>Create Account</h2>
+                <p>Join HealthAI for personalized health insights</p>
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-type">Account Type</label>
+                        <select id="signup-type" required>
+                            <option value="patient">Patient</option>
+                            <option value="healthcare_provider">Healthcare Provider</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" onclick="showAuthModal('login')">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
