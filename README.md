@@ -6,7 +6,8 @@
 
 An AI-powered health symptom analyzer that provides preliminary health insights based on your symptoms. Built with FastAPI, powered by LLaMA 3 via Groq API.
 
-![HealthAI Screenshot](assets/screenshot.png)
+!<img width="1870" height="723" alt="image" src="https://github.com/user-attachments/assets/40d9d7c6-5b5b-47ce-b3d6-c40544468f99" />
+
 
 ## ⚠️ Important Disclaimer
 
