@@ -19,7 +19,7 @@ An AI-powered health symptom analyzer that provides preliminary health insights 
 
 ---
 
-## 🚀 Features
+## Features
 
 - **🔬 Symptom Analysis** - Describe your symptoms and get AI-powered preliminary assessments
 - **📄 Report Analysis** - Upload medical reports (PDF) and get easy-to-understand explanations
