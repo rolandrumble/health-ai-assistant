@@ -26,8 +26,8 @@ An AI-powered health symptom analyzer that provides preliminary health insights 
 - **📄 Report Analysis** - Upload medical reports (PDF) and get easy-to-understand explanations
 - **💬 Health Chat** - Interactive conversation about health concerns
 - **🔒 Privacy Focused** - Your data stays secure
-- **📱 Responsive Design** - Works on desktop and mobile
-- **⚡ Instant Results** - Get insights in seconds
+- **Responsive Design** - Works on desktop and mobile
+- **Instant Results** - Get insights in seconds
 
 ---
 
