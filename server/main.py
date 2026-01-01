@@ -45,7 +45,19 @@ base_dir = pathlib.Path(__file__).parent.parent
 static_dir = base_dir / "static"
 templates_dir = base_dir / "templates"
 
-app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+# Only mount static files if not on Vercel (Vercel handles static files via vercel.json)
+# Check if we're on Vercel by checking for VERCEL environment variable
+if not os.getenv("VERCEL"):
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+else:
+    # On Vercel, static files are served via vercel.json routes
+    # But we still need to mount for FastAPI to know about them
+    try:
+        app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+    except Exception:
+        # If mounting fails on Vercel, that's okay - Vercel will serve them
+        pass
+
 templates = Jinja2Templates(directory=str(templates_dir))
 
 # In-memory storage (replace with database in production)
