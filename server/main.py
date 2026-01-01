@@ -19,6 +19,7 @@ import uuid
 import PyPDF2
 from io import BytesIO
 from dotenv import load_dotenv
+import pathlib
 
 # Load environment variables
 load_dotenv()
@@ -39,8 +40,13 @@ app.add_middleware(
 )
 
 # Mount static files and templates
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# Use absolute paths for Vercel deployment
+base_dir = pathlib.Path(__file__).parent.parent
+static_dir = base_dir / "static"
+templates_dir = base_dir / "templates"
+
+app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+templates = Jinja2Templates(directory=str(templates_dir))
 
 # In-memory storage (replace with database in production)
 analyses_db = {}
